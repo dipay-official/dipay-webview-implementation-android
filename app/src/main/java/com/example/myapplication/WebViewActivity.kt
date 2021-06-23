@@ -50,7 +50,6 @@ class WebViewActivity : AppCompatActivity() {
                     // Do whatever you want to do
 
                     Toast.makeText(this@WebViewActivity, response.data.toString(), Toast.LENGTH_SHORT).show()
-                    finish()
                 } else {
                     // If failed
 
