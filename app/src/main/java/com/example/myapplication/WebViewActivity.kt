@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
@@ -31,6 +32,8 @@ class WebViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web_view)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         if (endPoint.isNullOrEmpty()) {
             finish()
@@ -109,8 +112,17 @@ class WebViewActivity : AppCompatActivity() {
 
         webView.settings.javaScriptEnabled = true
 
-        webView.loadUrl("http://192.168.88.28:3000/${endPoint}")
+        webView.loadUrl("https://wvs.evy.id/${endPoint}")
 
+    }
+
+
+    override fun onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            super.onBackPressed();
+        }
     }
 
     companion object {

@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,6 +39,9 @@ class MainActivity : AppCompatActivity() {
         findViewById(R.id.btnPayment)
     }
 
+    private val phoneNumber: TextInputEditText by lazy {
+        findViewById(R.id.phoneNumber)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,21 +49,25 @@ class MainActivity : AppCompatActivity() {
 
         btnAction.setOnClickListener {
             val intent = Intent(this, WebViewActivity::class.java)
-            intent.putExtra(WebViewActivity.END_POINT_DATA, "activation?clientId=UNA_INDONESIA&phoneNumber=857112225588")
+            intent.putExtra(
+                WebViewActivity.END_POINT_DATA,
+                "activation?clientId=UNA_INDONESIA&phoneNumber=${phoneNumber.text.toString().trim()}"
+            )
             activationLauncher.launch(intent)
 
         }
 
         btnPayment.setOnClickListener {
 
-            if(secretKey.isEmpty()){
+            if (secretKey.isEmpty()) {
                 Toast.makeText(this, "Harap aktivasi terlebih dahulu", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
 
             val intent = Intent(this, WebViewActivity::class.java)
-            var endPoint = "payment?clientId=UNA_INDONESIA&secretKey={SECRET_KEY}&productCode=PROD1&transactionNumber=000001&amount=10000"
+            var endPoint =
+                "payment?clientId=UNA_INDONESIA&secretKey={SECRET_KEY}&productCode=PROD1&transactionNumber=000001&amount=10000"
             endPoint = endPoint.replace("{SECRET_KEY}", secretKey)
             intent.putExtra(WebViewActivity.END_POINT_DATA, endPoint)
             startActivity(intent)

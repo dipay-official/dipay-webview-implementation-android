@@ -1,7 +1,7 @@
 javascript:(function() {
     function callback(e){
         /* Only allow origin from Evy WebView URL */
-        if(e.origin !== 'http://192.168.88.28:3000'){
+        if(e.origin !== 'https://wvs.evy.id'){
             return;
         }
 
