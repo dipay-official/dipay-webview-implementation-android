@@ -9,15 +9,15 @@ javascript:(function() {
         var data = JSON.stringify(e.data.callback);
 
         /* Check the type of postMessage */
-        if(event.data.type == 'ACTIVATION'){
+        if(e.data.type == 'ACTIVATION'){
             /* Call JavaScript Interface onActivation */
 
             EvyWebView.onActivation(data);
-        } else if(event.data.type == 'PAYMENT'){
+        } else if(e.data.type == 'PAYMENT'){
             /* Call JavaScript Interface onPayment */
 
             EvyWebView.onPayment(data);
-        } else if(event.data.type == 'CLOSE_WEBVIEW'){
+        } else if(e.data.type == 'CLOSE_WEBVIEW'){
             /* Call JavaScript Interface onClose */
 
             EvyWebView.onClose();

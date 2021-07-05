@@ -43,6 +43,10 @@ class MainActivity : AppCompatActivity() {
         findViewById(R.id.phoneNumber)
     }
 
+    private val btnLocation: Button by lazy {
+        findViewById(R.id.btnLocation)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -73,5 +77,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        btnLocation.setOnClickListener {
+            val intent = Intent(this, LocationActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
