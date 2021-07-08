@@ -47,15 +47,21 @@ class MainActivity : AppCompatActivity() {
         findViewById(R.id.btnLocation)
     }
 
+    private val btnEvyHome: Button by lazy {
+        findViewById(R.id.btnEvyHome)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        btnLocation.visibility = View.GONE
         btnAction.setOnClickListener {
             val intent = Intent(this, WebViewActivity::class.java)
             intent.putExtra(
                 WebViewActivity.END_POINT_DATA,
-                "activation?clientId=UNA_INDONESIA&phoneNumber=${phoneNumber.text.toString().trim()}"
+                "activation?clientId=UNA_INDONESIA&phoneNumber=${
+                    phoneNumber.text.toString().trim()
+                }"
             )
             activationLauncher.launch(intent)
 
@@ -79,6 +85,21 @@ class MainActivity : AppCompatActivity() {
 
         btnLocation.setOnClickListener {
             val intent = Intent(this, LocationActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnEvyHome.setOnClickListener {
+            if (secretKey.isEmpty()) {
+                Toast.makeText(this, "Harap aktivasi terlebih dahulu", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+
+            val intent = Intent(this, WebViewActivity::class.java)
+            var endPoint =
+                "?clientId=UNA_INDONESIA&secretKey={SECRET_KEY}"
+            endPoint = endPoint.replace("{SECRET_KEY}", secretKey)
+            intent.putExtra(WebViewActivity.END_POINT_DATA, endPoint)
             startActivity(intent)
         }
     }
