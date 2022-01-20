@@ -9,11 +9,12 @@ import com.example.myapplication.data.LocalStorage
 import com.example.myapplication.databinding.ActivitySettingClientIdBinding
 
 class SettingClientIdActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivitySettingClientIdBinding
+    lateinit var viewType: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_setting_client_id)
+        viewType = intent.getStringExtra("ViewType") ?: "CLIENT_ID"
         setUp()
     }
 
@@ -22,22 +23,50 @@ class SettingClientIdActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.apply {
-            btnSave.setOnClickListener {
-                val clientId = etClientId.text.toString()
-                if(clientId.isEmpty()){
-                    Toast.makeText(this@SettingClientIdActivity, "Client ID tidak boleh kosong", Toast.LENGTH_SHORT).show()
-                    return@setOnClickListener
+            when(viewType){
+                "CLIENT_ID" -> {
+                    etLayoutClientId.hint = "Client Id"
+                    btnSave.text = "Simpan Client Id"
+                    binding.etClientId.setText(LocalStorage.getClientId() ?: "")
                 }
-                LocalStorage.setClientId(clientId)
-                Toast.makeText(this@SettingClientIdActivity, "Client ID [${clientId}] berhasil disimpan", Toast.LENGTH_SHORT).show()
-                finish()
+                "URL" -> {
+                    etLayoutClientId.hint = "Base URL"
+                    btnSave.text = "Simpan Base URL"
+                    binding.etClientId.setText(LocalStorage.baseUrl ?: "")
+
+                }
+            }
+            btnSave.setOnClickListener {
+                when(viewType){
+                    "CLIENT_ID" -> {
+                        val clientId = etClientId.text.toString()
+                        if(clientId.isEmpty()){
+                            Toast.makeText(this@SettingClientIdActivity, "Client ID tidak boleh kosong", Toast.LENGTH_SHORT).show()
+                            return@setOnClickListener
+                        }
+                        LocalStorage.setClientId(clientId)
+                        Toast.makeText(this@SettingClientIdActivity, "Client ID [${clientId}] berhasil disimpan", Toast.LENGTH_SHORT).show()
+                        finish()
+                    }
+                    "URL" -> {
+                        val baseUrl = etClientId.text.toString()
+                        if(baseUrl.isEmpty()){
+                            Toast.makeText(this@SettingClientIdActivity, "Base URL tidak boleh kosong", Toast.LENGTH_SHORT).show()
+                            return@setOnClickListener
+                        }
+                        LocalStorage.baseUrl = baseUrl
+                        Toast.makeText(this@SettingClientIdActivity, "Base URL [${baseUrl}] berhasil disimpan", Toast.LENGTH_SHORT).show()
+                        finish()
+                    }
+                }
+
             }
         }
     }
 
     override fun onResume() {
         super.onResume()
-        binding.etClientId.setText(LocalStorage.getClientId() ?: "")
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

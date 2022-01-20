@@ -1,23 +1,15 @@
 package com.example.myapplication
 
-import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.webkit.*
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.myapplication.data.LocalStorage
 import com.example.myapplication.databinding.ActivityMainBinding
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
 
@@ -99,6 +91,14 @@ class MainActivity : AppCompatActivity() {
 
             btnClientId.setOnClickListener {
                 val intent = Intent(this@MainActivity, SettingClientIdActivity::class.java)
+                startActivity(intent)
+            }
+
+            btnBaseUrl.setOnClickListener {
+                val intent = Intent(this@MainActivity, SettingClientIdActivity::class.java)
+                    .also {
+                        it.putExtra("ViewType", "URL")
+                    }
                 startActivity(intent)
             }
         }

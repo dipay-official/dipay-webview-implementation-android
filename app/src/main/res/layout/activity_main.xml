@@ -54,7 +54,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnLocation"
             android:text="Location" />
-
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnBaseUrl"
+            android:text="Set Base URL" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -13,6 +13,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.data.LocalStorage
 import com.example.myapplication.model.Activation
 import com.example.myapplication.model.Payment
 import com.example.myapplication.model.ResponseCallback
@@ -97,9 +98,14 @@ class WebViewActivity : AppCompatActivity() {
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
                 val js = resources.openRawResource(R.raw.evycallback).bufferedReader()
-                    .use { it.readText() }.trimIndent()
+                    .use { it.readText() }
 
                 webView.loadUrl(js)
+            }
+
+            override fun onPageFinished(view: WebView?, url: String?) {
+                super.onPageFinished(view, url)
+
             }
 
             override fun onReceivedError(
@@ -113,7 +119,7 @@ class WebViewActivity : AppCompatActivity() {
 
         webView.settings.javaScriptEnabled = true
 
-        webView.loadUrl("https://wvs.evy.id/${endPoint}")
+        webView.loadUrl("${LocalStorage.baseUrl}/${endPoint}")
 
     }
 

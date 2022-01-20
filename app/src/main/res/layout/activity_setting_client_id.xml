@@ -17,6 +17,7 @@
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
+            android:id="@+id/etLayoutClientId"
             android:layout_height="wrap_content"
             android:hint="@string/client_id">
 
