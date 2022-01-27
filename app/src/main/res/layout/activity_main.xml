@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:id="@+id/swipe"
         android:padding="16dp"
-        tools:context=".MainActivity">
+        tools:context="com.dipay.dipayintegration.MainActivity">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"

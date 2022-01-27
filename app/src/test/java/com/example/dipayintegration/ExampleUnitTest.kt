@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.dipayintegration
 
 import org.junit.Test
 

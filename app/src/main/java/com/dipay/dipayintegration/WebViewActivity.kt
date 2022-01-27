@@ -1,4 +1,4 @@
-package com.example.dipayintegration
+package com.dipay.dipayintegration
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -12,10 +12,11 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.dipayintegration.data.LocalStorage
-import com.example.dipayintegration.model.Activation
-import com.example.dipayintegration.model.Payment
-import com.example.dipayintegration.model.ResponseCallback
+import com.example.dipayintegration.R
+import com.dipay.dipayintegration.data.LocalStorage
+import com.dipay.dipayintegration.model.Activation
+import com.dipay.dipayintegration.model.Payment
+import com.dipay.dipayintegration.model.ResponseCallback
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 

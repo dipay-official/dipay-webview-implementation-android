@@ -1,4 +1,4 @@
-package com.example.dipayintegration.data
+package com.dipay.dipayintegration.data
 
 import com.orhanobut.hawk.Hawk
 

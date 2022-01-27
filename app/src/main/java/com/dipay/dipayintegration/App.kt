@@ -1,4 +1,4 @@
-package com.example.dipayintegration
+package com.dipay.dipayintegration
 
 import android.app.Application
 import com.orhanobut.hawk.Hawk

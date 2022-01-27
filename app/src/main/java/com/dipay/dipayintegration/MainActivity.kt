@@ -1,4 +1,4 @@
-package com.example.dipayintegration
+package com.dipay.dipayintegration
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,8 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.example.dipayintegration.data.LocalStorage
+import com.example.dipayintegration.R
+import com.dipay.dipayintegration.data.LocalStorage
 import com.example.dipayintegration.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

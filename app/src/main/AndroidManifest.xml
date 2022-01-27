@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.myapplication">
+    package="com.example.dipayintegration">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -14,12 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
-        android:name=".App"
+        android:name="com.example.dipayintegration.com.dipay.dipayintegration.App"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SettingClientIdActivity"></activity>
-        <activity android:name=".LocationActivity" />
-        <activity android:name=".WebViewActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.dipayintegration.com.dipay.dipayintegration.SettingClientIdActivity"></activity>
+        <activity android:name="com.example.dipayintegration.com.dipay.dipayintegration.LocationActivity" />
+        <activity android:name="com.example.dipayintegration.com.dipay.dipayintegration.WebViewActivity" />
+        <activity android:name="com.example.dipayintegration.com.dipay.dipayintegration.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
