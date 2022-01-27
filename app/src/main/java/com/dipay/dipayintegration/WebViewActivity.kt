@@ -1,11 +1,10 @@
-package com.example.myapplication
+package com.example.dipayintegration
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
-import android.view.KeyEvent
 import android.view.MenuItem
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
@@ -13,10 +12,10 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.data.LocalStorage
-import com.example.myapplication.model.Activation
-import com.example.myapplication.model.Payment
-import com.example.myapplication.model.ResponseCallback
+import com.example.dipayintegration.data.LocalStorage
+import com.example.dipayintegration.model.Activation
+import com.example.dipayintegration.model.Payment
+import com.example.dipayintegration.model.ResponseCallback
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 

@@ -1,4 +1,4 @@
-package com.example.myapplication.model
+package com.example.dipayintegration.model
 
 import com.google.gson.annotations.SerializedName
 

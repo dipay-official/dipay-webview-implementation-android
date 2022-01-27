@@ -1,12 +1,12 @@
-package com.example.myapplication
+package com.example.dipayintegration
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import com.example.myapplication.data.LocalStorage
-import com.example.myapplication.databinding.ActivitySettingClientIdBinding
+import com.example.dipayintegration.data.LocalStorage
+import com.example.dipayintegration.databinding.ActivitySettingClientIdBinding
 
 class SettingClientIdActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingClientIdBinding
